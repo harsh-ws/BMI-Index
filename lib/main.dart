@@ -3,11 +3,14 @@ import 'package:flutter/material.dart';
 void main() {
   runApp(const MyApp());
 }
-
+//a simple bmi calculator application using design inspiration from dribble.com
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
   // This widget is the root of your application.
+  void randomFunction(){
+
+  }
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
