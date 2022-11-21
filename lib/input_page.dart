@@ -17,34 +17,65 @@ class _InputPageState extends State<InputPage> {
             Expanded(
               child: Row(
                 children: const <Widget>[
-                  Expanded(child: ReusableCard()),
-                  Expanded(child: ReusableCard()),
+                  Expanded(
+                    child: ReusableCard(
+                      color: Color(0xFF1D1E33),
+                    ),
+                  ),
+                  Expanded(
+                    child: ReusableCard(
+                      color: Color(0xFF1D1E33),
+                    ),
+                  ),
+                  Expanded(
+                    child: ReusableCard(
+                      color: Color(0xFF1D1E33),
+                    ),
+                  ),
                 ],
               ),
             ),
             Expanded(
               child: Row(
                 children: const <Widget>[
-                  Expanded(child: ReusableCard()),
+                  Expanded(
+                      child: ReusableCard(
+                    color: Color(0xFF1D1E33),
+                  )),
                 ],
               ),
             ),
             Expanded(
               child: Row(
                 children: const <Widget>[
-                  Expanded(child: ReusableCard()),
-                  Expanded(child: ReusableCard()),
+                  Expanded(
+                    child: ReusableCard(
+                      color: Color(0xFF1D1E33),
+                    ),
+                  ),
+                  Expanded(
+                    child: ReusableCard(
+                      color: Color(0xFF1D1E33),
+                    ),
+                  ),
                 ],
               ),
             ),
+            Container(
+              color: Colors.green,
+              height: 80,
+              margin: const EdgeInsets.only(top: 10),
+              width: double.infinity,
+            )
           ],
         ));
   }
 }
 
 class ReusableCard extends StatelessWidget {
-  const ReusableCard({Key? key}) : super(key: key);
-
+  //const ReusableCard({Key? key}) : super(key: key);
+  const ReusableCard({required this.color});
+  final Color color;
   @override
   Widget build(BuildContext context) {
     return Container(
