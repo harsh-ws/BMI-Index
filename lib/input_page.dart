@@ -7,6 +7,7 @@ class InputPage extends StatefulWidget {
   @override
   _InputPageState createState() => _InputPageState();
 }
+//0xFF1D1E33
 
 const cardColor = Color(0xFF1D1E33);
 
@@ -23,9 +24,21 @@ class _InputPageState extends State<InputPage> {
               child: Row(
                 children: <Widget>[
                   Expanded(
-                    child: ReusableCard(
-                        color: cardColor,
-                        cardChild: Column(
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(
+                          () {
+                            print('Male card pressed.');
+                          },
+                        );
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.all(15),
+                        decoration: BoxDecoration(
+                          color: cardColor,
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: const <Widget>[
                             Icon(
@@ -35,33 +48,45 @@ class _InputPageState extends State<InputPage> {
                             SizedBox(
                               height: 10,
                             ),
-                            Text(
-                              'MALE',
-                              style: TextStyle(color: Colors.white),
-                            ),
+                            Text('MALE'),
                           ],
-                        )),
+                        ),
+                      ),
+                    ),
                   ),
                   Expanded(
-                    child: ReusableCard(
+                    child: Container(
+                      margin: const EdgeInsets.all(15),
+                      decoration: BoxDecoration(
                         color: cardColor,
-                        cardChild: Column(
-                          children: const <Widget>[
-                            Icon(
-                              FontAwesomeIcons.mars,
-                              size: 70,
-                            ),
-                          ],
-                        )),
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const <Widget>[
+                          Icon(
+                            FontAwesomeIcons.venus,
+                            size: 70,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text('FEMALE'),
+                        ],
+                      ),
+                    ),
                   ),
                 ],
               ),
             ),
             Expanded(
               child: Row(
-                children: const <Widget>[
+                children: <Widget>[
                   Expanded(
                       child: ReusableCard(
+                    cardChild: Column(
+                      children: <Icon>[Icon(FontAwesomeIcons.cableCar)],
+                    ),
                     color: cardColor,
                   )),
                 ],
@@ -96,7 +121,7 @@ class _InputPageState extends State<InputPage> {
 
 class ReusableCard extends StatelessWidget {
   //const ReusableCard({Key? key}) : super(key: key);
-  const ReusableCard({super.key, required this.color, this.cardChild});
+  const ReusableCard({required this.color, this.cardChild});
   final Color color;
   final Widget? cardChild;
 
@@ -111,3 +136,26 @@ class ReusableCard extends StatelessWidget {
     );
   }
 }
+
+/*
+ReusableCard(
+                      color: Colors.white,
+                      cardChild: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const <Widget>[
+                          Icon(
+                            FontAwesomeIcons.mars,
+                            size: 70,
+                          ),
+                          SizedBox(
+                            height: 10,
+                          ),
+                          Text(
+                            'MALE',
+                            style: TextStyle(color: Colors.white),
+                          ),
+                        ],
+                      ),
+                    )
+
+ */
