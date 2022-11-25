@@ -10,8 +10,34 @@ class InputPage extends StatefulWidget {
 //0xFF1D1E33
 
 const cardColor = Color(0xFF1D1E33);
+const inActiveColor = Color(0xFF111328);
+const activeColor = Color(0xFF1D1E33);
+
+enum GenderType { male, female }
 
 class _InputPageState extends State<InputPage> {
+  Color maleCardColor = inActiveColor;
+  Color femaleCardColor = inActiveColor;
+
+  void setColor(GenderType selection) {
+    if (selection == GenderType.male) {
+      // 1 means male
+      if (maleCardColor == inActiveColor) {
+        maleCardColor = activeColor;
+        femaleCardColor = inActiveColor;
+      } else {
+        maleCardColor = inActiveColor;
+      }
+    } else if (selection == GenderType.female) {
+      if (femaleCardColor == inActiveColor) {
+        femaleCardColor = activeColor;
+        maleCardColor = inActiveColor;
+      } else {
+        femaleCardColor = inActiveColor;
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -28,14 +54,14 @@ class _InputPageState extends State<InputPage> {
                       onTap: () {
                         setState(
                           () {
-                            print('Male card pressed.');
+                            setColor(GenderType.male);
                           },
                         );
                       },
                       child: Container(
                         margin: const EdgeInsets.all(15),
                         decoration: BoxDecoration(
-                          color: cardColor,
+                          color: maleCardColor,
                           borderRadius: BorderRadius.circular(15),
                         ),
                         child: Column(
@@ -55,24 +81,31 @@ class _InputPageState extends State<InputPage> {
                     ),
                   ),
                   Expanded(
-                    child: Container(
-                      margin: const EdgeInsets.all(15),
-                      decoration: BoxDecoration(
-                        color: cardColor,
-                        borderRadius: BorderRadius.circular(15),
-                      ),
-                      child: Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const <Widget>[
-                          Icon(
-                            FontAwesomeIcons.venus,
-                            size: 70,
-                          ),
-                          SizedBox(
-                            height: 10,
-                          ),
-                          Text('FEMALE'),
-                        ],
+                    child: GestureDetector(
+                      onTap: () {
+                        setState(() {
+                          setColor(GenderType.female);
+                        });
+                      },
+                      child: Container(
+                        margin: const EdgeInsets.all(15),
+                        decoration: BoxDecoration(
+                          color: femaleCardColor,
+                          borderRadius: BorderRadius.circular(15),
+                        ),
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: const <Widget>[
+                            Icon(
+                              FontAwesomeIcons.venus,
+                              size: 70,
+                            ),
+                            SizedBox(
+                              height: 10,
+                            ),
+                            Text('FEMALE'),
+                          ],
+                        ),
                       ),
                     ),
                   ),
