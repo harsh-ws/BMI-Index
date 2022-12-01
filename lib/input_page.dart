@@ -1,5 +1,5 @@
 import 'dart:math';
-
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'constants.dart';
@@ -18,7 +18,7 @@ class _InputPageState extends State<InputPage> {
   Color maleCardColor = kInActiveColor;
   Color femaleCardColor = kInActiveColor;
   int height = 180;
-
+  int weight = 60;
   void setColor(GenderType selection) {
     if (selection == GenderType.male) {
       // 1 means male
@@ -168,15 +168,71 @@ class _InputPageState extends State<InputPage> {
             ),
             Expanded(
               child: Row(
-                children: const <Widget>[
+                children: <Widget>[
                   Expanded(
-                    child: ReusableCard(
-                      color: kCardColor,
+                    child: Container(
+                      margin: const EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        color: femaleCardColor,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          const Text(
+                            'WEIGHT',
+                            style: kLabelTextStyle,
+                          ),
+                          Text(
+                            weight.toString(),
+                            style: kNumberTextStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceEvenly,
+                                children: <Widget>[
+                                  RoundIconButton(),
+                                  RoundIconButton()
+                                ],
+                              ),
+                            ],
+                          )
+                        ],
+                      ),
                     ),
                   ),
                   Expanded(
-                    child: ReusableCard(
-                      color: kCardColor,
+                    child: Container(
+                      margin: const EdgeInsets.all(15),
+                      decoration: BoxDecoration(
+                        color: femaleCardColor,
+                        borderRadius: BorderRadius.circular(15),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          const Text(
+                            'AGE',
+                            style: kLabelTextStyle,
+                          ),
+                          Text(
+                            weight.toString(),
+                            style: kNumberTextStyle,
+                          ),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                            children: <Widget>[
+                              RoundIconButton(),
+                              RoundIconButton()
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ),
                 ],
@@ -206,6 +262,28 @@ class ReusableCard extends StatelessWidget {
       decoration: BoxDecoration(
         color: kCardColor,
         borderRadius: BorderRadius.circular(15),
+      ),
+    );
+  }
+}
+
+class RoundIconButton extends StatefulWidget {
+  const RoundIconButton({Key? key}) : super(key: key);
+
+  @override
+  State<RoundIconButton> createState() => _RoundIconButtonState();
+}
+
+class _RoundIconButtonState extends State<RoundIconButton> {
+  @override
+  Widget build(BuildContext context) {
+    return RawMaterialButton(
+      onPressed: () {},
+      shape: CircleBorder(),
+      fillColor: Colors.green,
+      constraints: const BoxConstraints.tightFor(
+        width: 56.0,
+        height: 56.0,
       ),
     );
   }
