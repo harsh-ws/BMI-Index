@@ -19,6 +19,7 @@ class _InputPageState extends State<InputPage> {
   Color femaleCardColor = kInActiveColor;
   int height = 180;
   int weight = 60;
+  int age = 25;
   void setColor(GenderType selection) {
     if (selection == GenderType.male) {
       // 1 means male
@@ -191,8 +192,18 @@ class _InputPageState extends State<InputPage> {
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
-                            RoundIconButton(FontAwesomeIcons.plus),
-                            RoundIconButton(FontAwesomeIcons.minus),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () => setState(() {
+                                weight--;
+                              }),
+                            ),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () => setState(() {
+                                weight++;
+                              }),
+                            ),
                           ],
                         ),
                       ],
@@ -215,14 +226,24 @@ class _InputPageState extends State<InputPage> {
                           style: kLabelTextStyle,
                         ),
                         Text(
-                          weight.toString(),
+                          age.toString(),
                           style: kNumberTextStyle,
                         ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            RoundIconButton(FontAwesomeIcons.plus),
-                            RoundIconButton(FontAwesomeIcons.minus),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.minus,
+                              onPressed: () => setState(() {
+                                age--;
+                              }),
+                            ),
+                            RoundIconButton(
+                              icon: FontAwesomeIcons.plus,
+                              onPressed: () => setState(() {
+                                age++;
+                              }),
+                            ),
                           ],
                         )
                       ],
@@ -263,20 +284,22 @@ class ReusableCard extends StatelessWidget {
 }
 
 class RoundIconButton extends StatelessWidget {
-  const RoundIconButton(this.icon);
-  final IconData icon;
-  @override
+  const RoundIconButton(
+      {super.key, required this.icon, required this.onPressed});
+  final IconData? icon;
+  final Function()? onPressed;
   @override
   Widget build(BuildContext context) {
     return RawMaterialButton(
-      child: Icon(icon),
-      onPressed: () {},
-      shape: CircleBorder(),
+      onPressed: onPressed,
+      shape: const CircleBorder(),
+      elevation: 6.0,
       fillColor: Colors.green,
       constraints: const BoxConstraints.tightFor(
         width: 56.0,
         height: 56.0,
       ),
+      child: Icon(icon),
     );
   }
 }
