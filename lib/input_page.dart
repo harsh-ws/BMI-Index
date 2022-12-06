@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'constants.dart';
+import 'results_page.dart';
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -15,11 +16,6 @@ class InputPage extends StatefulWidget {
 enum GenderType { male, female }
 
 class _InputPageState extends State<InputPage> {
-  Color maleCardColor = kInActiveColor;
-  Color femaleCardColor = kInActiveColor;
-  int height = 180;
-  int weight = 60;
-  int age = 25;
   void setColor(GenderType selection) {
     if (selection == GenderType.male) {
       // 1 means male
@@ -253,12 +249,26 @@ class _InputPageState extends State<InputPage> {
               ],
             ),
           ),
-          Container(
-            color: Colors.green,
-            height: 80,
-            margin: const EdgeInsets.only(top: 10),
-            width: double.infinity,
-          )
+          GestureDetector(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const ResultsPage()),
+              );
+            },
+            child: Container(
+              color: Colors.green,
+              height: 80,
+              margin: const EdgeInsets.only(top: 10),
+              width: double.infinity,
+              padding: const EdgeInsets.only(bottom: 20),
+              child: const Center(
+                  child: Text(
+                'CALCULATE',
+                style: kLargeButtonStyle,
+              )),
+            ),
+          ),
         ],
       ),
     );
