@@ -10,6 +10,9 @@ int weight = 60;
 int age = 25;
 double bmiLow = 18.5;
 double bmiHigh = 24.9;
+
+List<String> resultFeedback = ['Low', 'Normal', 'High'];
+
 const kLabelTextStyle = TextStyle(color: Colors.white, fontSize: 15);
 
 const kNumberTextStyle = TextStyle(
@@ -19,4 +22,5 @@ const kNumberTextStyle = TextStyle(
 
 const kLargeButtonStyle = TextStyle(fontSize: 25, fontWeight: FontWeight.bold);
 
-const kResultsStyle = TextStyle(fontSize: 30, fontWeight: FontWeight.bold);
+const kResultsStyle =
+    TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white);
