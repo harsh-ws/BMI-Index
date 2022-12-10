@@ -118,7 +118,7 @@ class _InputPageState extends State<InputPage> {
                   child: Container(
                     margin: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
-                      color: femaleCardColor,
+                      color: kInActiveColor,
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: Column(
@@ -172,7 +172,7 @@ class _InputPageState extends State<InputPage> {
                   child: Container(
                     margin: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
-                      color: femaleCardColor,
+                      color: kInActiveColor,
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: Column(
@@ -212,7 +212,7 @@ class _InputPageState extends State<InputPage> {
                   child: Container(
                     margin: const EdgeInsets.all(15),
                     decoration: BoxDecoration(
-                      color: femaleCardColor,
+                      color: kInActiveColor,
                       borderRadius: BorderRadius.circular(15),
                     ),
                     child: Column(
@@ -296,7 +296,7 @@ class ReusableCard extends StatelessWidget {
     return Container(
       margin: const EdgeInsets.all(15),
       decoration: BoxDecoration(
-        color: kCardColor,
+        color: kActiveColor,
         borderRadius: BorderRadius.circular(15),
       ),
     );

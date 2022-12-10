@@ -32,10 +32,12 @@ class ResultsPage extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: const <Widget>[
                   Center(
-                      child: Text(
-                    'YOUR RESULTS',
-                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                  )),
+                    child: Text(
+                      'YOUR RESULTS',
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                    ),
+                  ),
                 ],
               ),
             ),
@@ -48,25 +50,31 @@ class ResultsPage extends StatelessWidget {
                 color: kCardColor,
                 borderRadius: BorderRadius.circular(15),
               ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Text(
-                    result,
-                    style: kBodyTextStyle.copyWith(
-                        color: Colors.green, fontWeight: FontWeight.w900),
-                  ),
-                  Text(
-                    bmiResult,
-                    style: kResultsStyle,
-                  ),
-                  Text(
-                    interpretation,
-                    style: kBodyTextStyle,
-                    textAlign: TextAlign.center,
-                  )
-                ],
+              child: Expanded(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
+                  children: <Widget>[
+                    Center(
+                      child: Text(
+                        result,
+                        style: kBodyTextStyle.copyWith(
+                            color: Colors.green, fontWeight: FontWeight.w900),
+                      ),
+                    ),
+                    Center(
+                      child: Text(
+                        bmiResult,
+                        style: kResultsStyle,
+                      ),
+                    ),
+                    Text(
+                      interpretation,
+                      style: kBodyTextStyle,
+                      textAlign: TextAlign.center,
+                    )
+                  ],
+                ),
               ),
             ),
           ),
