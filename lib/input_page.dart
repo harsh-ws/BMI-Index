@@ -1,9 +1,11 @@
 import 'dart:math';
+import 'package:bmi_index_app/calculation.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'constants.dart';
 import 'results_page.dart';
+import 'calculation.dart';
 
 class InputPage extends StatefulWidget {
   const InputPage({super.key});
@@ -251,9 +253,17 @@ class _InputPageState extends State<InputPage> {
           ),
           GestureDetector(
             onTap: () {
+              bmiCalculation calc =
+                  bmiCalculation(height: height, weight: weight);
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => const ResultsPage()),
+                MaterialPageRoute(
+                  builder: (context) => ResultsPage(
+                    bmiResult: calc.calculateBMI(),
+                    result: calc.result(),
+                    interpretation: calc.interpretation(),
+                  ),
+                ),
               );
             },
             child: Container(

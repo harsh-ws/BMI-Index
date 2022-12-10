@@ -8,10 +8,6 @@ Color femaleCardColor = kInActiveColor;
 int height = 180;
 int weight = 60;
 int age = 25;
-double bmiLow = 18.5;
-double bmiHigh = 24.9;
-
-List<String> resultFeedback = ['Low', 'Normal', 'High'];
 
 const kLabelTextStyle = TextStyle(color: Colors.white, fontSize: 15);
 
@@ -20,7 +16,12 @@ const kNumberTextStyle = TextStyle(
   fontWeight: FontWeight.w700,
 );
 
+const kBodyTextStyle = TextStyle(
+  fontSize: 20,
+  fontWeight: FontWeight.w700,
+);
+
 const kLargeButtonStyle = TextStyle(fontSize: 25, fontWeight: FontWeight.bold);
 
 const kResultsStyle =
-    TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white);
+    TextStyle(fontSize: 60, fontWeight: FontWeight.bold, color: Colors.white);
